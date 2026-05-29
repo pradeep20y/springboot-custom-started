@@ -21,18 +21,18 @@ public class PaymentConfig {
         return "payment success";
     }
 
-    @Bean
-    public String jwtFilter() {
-        System.out.println("CUSTOM jwt filter created by developer");
-        return "CustomJwtFilter";
-    }
-
-    @Bean
-    @ConditionalOnMissingBean(name = "jwtFilter")
-    public String defaultJwtFilter() {
-        System.out.println("defaultJwtFilter has been created");
-        return "Default JWT filter created successfully";
-    }
+//    @Bean
+//    public String jwtFilter() {
+//        System.out.println("CUSTOM jwt filter created by developer");
+//        return "CustomJwtFilter";
+//    }
+//
+//    @Bean
+//    @ConditionalOnMissingBean(name = "jwtFilter")
+//    public String defaultJwtFilter() {
+//        System.out.println("defaultJwtFilter has been created");
+//        return "Default JWT filter created successfully";
+//    }
 
     @Bean
     @ConditionalOnClass(name = "com.mysql.cj.jdbc.Driver")

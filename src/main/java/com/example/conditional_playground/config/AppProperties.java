@@ -2,6 +2,8 @@ package com.example.conditional_playground.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
+
 @ConfigurationProperties(prefix = "myapp")
 public class AppProperties {
 
@@ -24,7 +26,16 @@ public class AppProperties {
 
         public String secret = "Set Hard Things";
         public Long expiry = 860000L;
+        private List<String> publicEndpoints = List.of(
+                "/api/auth/**",
+                "/v3/api-docs/**",
+                "/swagger-ui/**"
+        );
 
+        public List<String> getPublicEndpoints() { return publicEndpoints; }
+        public void setPublicEndpoints(List<String> publicEndpoints) {
+            this.publicEndpoints = publicEndpoints;
+        }
         public String getSecret() {
             return secret;
         }
